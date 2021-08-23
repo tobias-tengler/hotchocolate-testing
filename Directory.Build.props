@@ -1,0 +1,18 @@
+<Project>
+    <PropertyGroup>
+        <HotChocolateVersion>12.0.0-preview.30</HotChocolateVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="HotChocolate.AspNetCore" Version="$(HotChocolateVersion)" />    
+        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="$(HotChocolateVersion)" />
+        <PackageReference Include="HotChocolate.Data" Version="$(HotChocolateVersion)" />
+        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="$(HotChocolateVersion)" />        
+        <PackageReference Include="HotChocolate.Data.MongoDb" Version="$(HotChocolateVersion)" />
+    </ItemGroup>
+</Project>
