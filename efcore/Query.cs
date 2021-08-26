@@ -7,11 +7,11 @@ public class Query
 {
     [UseDbContext(typeof(DatabaseContext))]
     [UsePaging]
-    public IQueryable<User> GetUsers([ScopedService] DatabaseContext dbContext)
+    public IQueryable<EfCoreUser> GetUsers([ScopedService] DatabaseContext dbContext)
         => dbContext.Users;
 }
 
-public class User
+public class EfCoreUser
 {
     public int Id { get; set; }
 

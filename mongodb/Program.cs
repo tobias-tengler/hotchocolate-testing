@@ -11,13 +11,13 @@ public class Program
     {
         var host = CreateHostBuilder(args).Build();
 
-        var collection = host.Services.GetRequiredService<IMongoCollection<User>>();
+        var collection = host.Services.GetRequiredService<IMongoCollection<MongoUser>>();
 
-        var users = new List<User>
+        var users = new List<MongoUser>
         {
-            new User { Id = "user1", Name = "User 1"},
-            new User { Id = "user2", Name = "User 2"},
-            new User { Id = "user3", Name = "User 3"},
+            new MongoUser { Id = "user1", Name = "User 1"},
+            new MongoUser { Id = "user2", Name = "User 2"},
+            new MongoUser { Id = "user3", Name = "User 3"},
         };
 
         // poor mans data seeding

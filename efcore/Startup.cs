@@ -22,6 +22,7 @@ public class Startup
 
         services
             .AddGraphQLServer()
+            .InitializeOnStartup()
             .AddQueryType<Query>();
     }
 
@@ -37,10 +38,10 @@ public class Startup
 
         app.UseEndpoints(endpoints =>
         {
-                // By default the GraphQL server is mapped to /graphql
-                // This route also provides you with our GraphQL IDE. 
-                // In order to configure the GraphQL IDE use endpoints.MapGraphQL().WithToolOptions(...).
-                endpoints.MapGraphQL();
+            // By default the GraphQL server is mapped to /graphql
+            // This route also provides you with our GraphQL IDE. 
+            // In order to configure the GraphQL IDE use endpoints.MapGraphQL().WithToolOptions(...).
+            endpoints.MapGraphQL();
         });
     }
 }

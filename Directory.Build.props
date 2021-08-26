@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <HotChocolateVersion>12.0.0-preview.30</HotChocolateVersion>
+        <HotChocolateVersion>12.0.0-preview.34</HotChocolateVersion>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -9,10 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="HotChocolate.AspNetCore" Version="$(HotChocolateVersion)" />    
-        <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="$(HotChocolateVersion)" />
+        <PackageReference Include="HotChocolate.AspNetCore" Version="$(HotChocolateVersion)" />
         <PackageReference Include="HotChocolate.Data" Version="$(HotChocolateVersion)" />
-        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="$(HotChocolateVersion)" />        
+        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="$(HotChocolateVersion)" />
         <PackageReference Include="HotChocolate.Data.MongoDb" Version="$(HotChocolateVersion)" />
+        <PackageReference Include="HotChocolate.Data.Neo4J" Version="$(HotChocolateVersion)" />
     </ItemGroup>
 </Project>

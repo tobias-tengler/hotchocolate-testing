@@ -6,11 +6,11 @@ using MongoDB.Driver;
 public class Query
 {
     [UsePaging]
-    public IExecutable<User> GetUsers([Service] IMongoCollection<User> collection)
+    public IExecutable<MongoUser> GetUsers([Service] IMongoCollection<MongoUser> collection)
         => collection.AsExecutable();
 }
 
-public class User
+public class MongoUser
 {
     public string Id { get; set; }
 

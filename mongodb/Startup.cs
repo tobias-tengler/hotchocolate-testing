@@ -19,12 +19,13 @@ public class Startup
     {
         var client = new MongoClient("mongodb://localhost:27017");
         var database = client.GetDatabase("test");
-        var collection = database.GetCollection<User>("users");
+        var collection = database.GetCollection<MongoUser>("users");
 
         services.AddSingleton(collection);
 
         services
             .AddGraphQLServer()
+            .InitializeOnStartup()
             .AddMongoDbPagingProviders()
             .AddQueryType<Query>();
     }
