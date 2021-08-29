@@ -18,14 +18,9 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-        var driver = GraphDatabase.Driver("bolt://localhost:7687");
-
-        services.AddSingleton(driver);
-
         services
             .AddGraphQLServer()
             .InitializeOnStartup()
-            .AddNeo4JPagingProviders()
             .AddQueryType<Query>();
     }
 

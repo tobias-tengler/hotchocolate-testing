@@ -4,31 +4,29 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Neo4j.Driver;
 
-namespace neo4j
+public class Program
 {
-    public class Program
+    public static async Task Main(string[] args)
     {
-        public static async Task Main(string[] args)
-        {
-            var host = CreateHostBuilder(args).Build();
+        var host = CreateHostBuilder(args).Build();
 
-            var driver = host.Services.GetRequiredService<IDriver>();
-            var session = driver.AsyncSession(o => o.WithDatabase("neo4j"));
+        var driver = host.Services.GetRequiredService<IDriver>();
+        var session = driver.AsyncSession(o => o.WithDatabase("neo4j"));
 
-            var cursor = await session.RunAsync(_seedCypher);
-            await cursor.ConsumeAsync();
+        var cursor = await session.RunAsync(_seedCypher);
+        await cursor.ConsumeAsync();
 
-            await host.RunAsync();
-        }
+        await host.RunAsync();
+    }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 
-        private const string _seedCypher = @"
+    private const string _seedCypher = @"
             CREATE (TheMatrix:Movie {Title:'The Matrix', Released:1999, Tagline:'Welcome to the Real World'})
             CREATE (Keanu:Actor {Name:'Keanu Reeves', Born:1964})
             CREATE (Carrie:Actor {Name:'Carrie-Anne Moss', Born:1967})
@@ -69,5 +67,4 @@ namespace neo4j
               (LanaW)-[:DIRECTED]->(TheMatrixRevolutions),
               (JoelS)-[:PRODUCED]->(TheMatrixRevolutions)
         ";
-    }
 }
