@@ -18,7 +18,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddPooledDbContextFactory<DatabaseContext>(b =>
-            b.UseSqlServer("Server=localhost;Database=test;User Id=sa;Password=Password!;"));
+            b.UseSqlServer("Server=localhost;Database=test;User Id=sa;Password=Password@;"));
 
         services
             .AddGraphQLServer()
